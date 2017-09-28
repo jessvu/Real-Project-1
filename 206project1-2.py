@@ -125,15 +125,11 @@ def findAge(a):
 #Student, all of the sorted data is saved to a csv file.
 def mySortPrint(a,col,fileName):
 	sort_list = sorted(a, key = lambda x:x[col])
-	#print(sort_list)
-	#newfile = str(fileName) + '.csv'
-	#L = newfile[0].keys()
-	#print(L)
 	with open('newfile.csv', 'w') as out_file:
 		fieldnames = a[0].keys()
 		writer = csv.DictWriter(out_file, fieldnames=fieldnames)
 		#writer = csv.writer(out_file)
-		for line in a:
+		for line in sort_list:
 			#writer = csv.DictWriter(out_file, fieldnames=fieldnames)
 			#writer.writeheader()
 			writer.writerow(({'First':line['First'],'Last':line['Last'],'Email':line['Email']}))
